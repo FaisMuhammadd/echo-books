@@ -1,8 +1,16 @@
+import BookList from "@/components/BookList";
+import BookOverview from "@/components/BookOverview";
 import { Button } from "@/components/ui/button";
+import { sampleBooks } from "@/constans";
 
 const Home = () => (
   <>
-    <Button>Click ME</Button>
+    <BookOverview {...sampleBooks[0]}/>
+    <BookList 
+      title='Latest Books'
+      books={sampleBooks}
+      containerClassName='mt-28'
+    />
   </>
 )
 
