@@ -1,8 +1,26 @@
+'use client'
 import React from 'react'
+import BookCard from './BookCard';
 
-const BookList = () => {
+interface Props {
+  title: string;
+  books: Book[];
+  containerClassName?: string;
+}
+
+const BookList = ({ title, books, containerClassName }: Props) => {
   return (
-    <div>BookList</div>
+    <section className={containerClassName}>
+      <h2 className='text-4xl font-bebas-neue text-light-100'>
+        {title}
+      </h2>
+
+      <ul className='book-list'>
+        {books.map((book) => (
+          <BookCard  key={book.title} {...book}/>
+        ))}
+      </ul>
+    </section>
   )
 }
 
