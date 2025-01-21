@@ -1,20 +1,26 @@
 import Image from 'next/image';
 import React from 'react'
 import { Button } from './ui/button';
-import BookCover from './BookCover';
+import BookCover from "@/components/BookCover";
+
+interface Props extends Book {
+  userId: string;
+}
 
 const BookOverview = ({
   title,
   author,
   genre,
   rating,
-  totalCopies,
-  availableCopies,
+  total_copies,
+  available_copies,
   description,
   coverColor,
   coverUrl,
   id,
-}: Book) => {
+  userId
+}: Props) => {
+
   return (
     <section className='book-overview'>
       <div className='flex flex-1 flex-col gap-5'>
@@ -36,8 +42,8 @@ const BookOverview = ({
         </div>
 
         <div className='book-copies'>
-          <p>Total Books: <span>{totalCopies}</span></p>
-          <p>Avialable Books: <span>{availableCopies}</span></p>
+          <p>Total Books: <span>{total_copies}</span></p>
+          <p>Avialable Books: <span>{available_copies}</span></p>
         </div>
 
         <p className='book-description'>{description}</p>
