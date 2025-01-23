@@ -15,10 +15,8 @@ const BookOverview = ({
   total_copies,
   available_copies,
   description,
-  coverColor,
-  coverUrl,
-  id,
-  userId
+  color,
+  cover,
 }: Props) => {
 
   return (
@@ -59,14 +57,14 @@ const BookOverview = ({
           <BookCover 
             variant='wide'
             className='z-10'
-            coverColor={coverColor}
-            coverImage={coverUrl}
+            coverColor={color}
+            coverImage={cover}
           />
           <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden">
             <BookCover 
               variant='wide'
-              coverColor={coverColor}
-              coverImage={coverUrl}
+              coverColor={color}
+              coverImage={cover}
             />
           </div>
         </div>
