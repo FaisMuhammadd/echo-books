@@ -4,8 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react'
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Session } from 'next-auth';
+import { getInitials } from '@/lib/utils';
 
-const Header = () => {
+const Header = ({ session }: { session: Session }) => {
   const pathname = usePathname()
 
   return (
@@ -18,6 +21,14 @@ const Header = () => {
         <li>
           <Link href='/library' className='text-base cursor-pointer capitalize text-white'>
             Library
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/my-profile">
+            <Avatar>
+              <AvatarFallback className='text-black bg-amber-100'>{getInitials(session?.user?.name || "IN")}</AvatarFallback>
+            </Avatar>
           </Link>
         </li>
       </ul>
